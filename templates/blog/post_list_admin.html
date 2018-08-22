@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">PK</th>
+            <th scope="col">TITLE</th>
+            <th scope="col">SLUG</th>
+            <th scope="col">STATUS</th>
+            <th scope="col">SEO_TITLE</th>
+            <th scope="col">SEO_DESCRIPTION</th>
+            <th scope="col">Detail</th>
+            <th scope="col">Edit</th>
+            <th scope="col">Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for item in items %}
+            <tr>
+                <th>{{ item.pk }}</th>
+                <th>{{ item.title }}</th>
+                <th>{{ item.slug }}</th>
+                <th>{{ item.status }}</th>
+                <th>{% if item.seo_title %}Yes{% else %}No{% endif %}</th>
+                <th>{% if item.seo_description %}Yes{% else %}No{% endif %}</th>
+                <th><a href="/blog/blog-list/?page={{ item.id }}"><button class="btn btn-outline-primary">Detail</button></a></th>
+                <th><a href="{% url 'blog:edit_post' pk=item.pk %}"><button class="btn btn-outline-warning">Edit</button></a></th>
+                <th><a href="{% url 'blog:delete_post' pk=item.pk %}"><button class="btn btn-outline-danger">Delete</button></a></th>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+    {% include 'pagination.html' %}
+{% endblock %}

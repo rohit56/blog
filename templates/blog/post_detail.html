@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block seo_title %}{% endblock %}
+{% block seo_description %}{% endblock %}
+
+{% block content %}
+
+<h1>Title:   <a href="" style="color: deepskyblue">{{ post.title }}</a></h1>
+    <h2>Category:   <a  style="color: deepskyblue" href="{% url 'blog:category_detail' slug=post.category.slug %}">{{ post.category }}</a></h2>
+    <h3>Status:   <a href="" style="color: deepskyblue">{{ post.status }}</a></h3>
+{% endblock %}

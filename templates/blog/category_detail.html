@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block seo_title %}{{ category.seo_title }}{% endblock %}
+{% block seo_description %}{{ category.seo_description }}{% endblock %}
+{% block content %}
+    <hr>
+<h1><a href=""><u>{{ category.title }}</u></a></h1>
+<p>{{ category.description }}</p>
+    <hr>
+
+    {% for item in post %}
+        <h2><a href=""><u>{{ item.title }}</u></a> </h2>
+        <p>{{ item.body }}</p>
+    {% endfor %}
+{% endblock %}

@@ -1,0 +1,59 @@
+{% load static %}
+<link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" type="text/css">
+          <script src="{% static 'js/bootstrap.min.js' %}"></script>
+
+{% block content %}
+    <div class="container">
+    <div class="jumbotron">
+    <form method="POST" class="form-horizontal">
+    {% csrf_token %}
+
+            <h1><u>Registration Form</u><hr></h1>
+            <div class="row">
+            <div class="col-md-12">
+            <table class="table table-bordered table-hover table-striped">
+                <tbody>
+
+                    <tr>
+                        <td><label class="control-label"><b>Username:</b></label></td>
+                        <div class="col-md-5"><td>{{ form.username }}</td></div>
+                    </tr>
+
+                    <tr>
+                        <td><label class="control-label"><b>First name:</b></label></td>
+                        <div class="col-md-5"><td>{{ form.first_name }}</td> </div>
+                    </tr>
+
+                    <tr>
+                        <td><label class="control-label"><b>Last name:</b></label></td>
+                        <div class="col-md-5"><td>{{ form.last_name }}</td></div>
+                    </tr>
+
+                    <tr>
+                        <td><label class="control-label"><b>Email id:</b></label></td>
+                        <div class="col-md-5"><td>{{ form.email }}</td></div>
+                    </tr>
+
+                    <tr>
+                        <td><label class="control-label"><b>Password:</b></label></td>
+                        <div class="col-md-5"><td>{{ form.password1 }}</td></div>
+                    </tr>
+
+                    <tr>
+                        <td><label class="control-label"><b>Confirm Password:</b></label></td>
+                        <div class="col-md-5"><td>{{ form.password2 }}</td></div>
+                    </tr>
+
+
+                </tbody>
+            </table>
+
+            <button type="submit" class="btn btn-primary float-right">SignUp</button>
+
+            </div>
+            </div>
+
+    </form>
+    </div>
+    </div>
+{% endblock %}

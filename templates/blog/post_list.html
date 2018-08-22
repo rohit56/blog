@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% include 'pagination.html' %}
+{% for obj in items %}
+<hr>
+    <div class="container">
+    <div class="jumbotron">
+    <h1><u><a href="{% url 'blog:blog_detail' slug=obj.slug %}">{{ obj.title }}</a></u></h1>
+    <p><strong>{{ obj.body }}</strong></p><hr>
+    <p><b><u><a href="{% url 'blog:category_detail' slug=obj.category.slug %}">{{ obj.category }}</a></u></b><p>
+    </div>
+    </div>
+{% endfor %}
+
+{% include 'pagination.html' %}
+{% endblock %}

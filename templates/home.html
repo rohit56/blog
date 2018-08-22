@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Welcome in Djnago</title>
+</head>
+<body>
+{% if request.GET.name %}
+    <h1>{{ message }}</h1>
+{% else %}
+    <form method="get" action="{% url 'home' %}">
+    <input name="name" value="{{request.GET.name}}">
+    <button type="submit">Submit</button>
+    </form>
+    <h1>This is the home Page</h1>
+{% endif %}
+</body>
+</html>

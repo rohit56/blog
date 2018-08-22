@@ -1,0 +1,36 @@
+{% load static %}
+<link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" type="text/css">
+          <script src="{% static 'js/bootstrap.min.js' %}"></script>
+
+{% block content %}
+
+<div class="container-fluid">
+<div class="col-md-4">
+<div class="jumbotron" style="background-color: mediumspringgreeney">
+    <form method="post">
+    {% csrf_token %}
+        <h1><u>LOGIN PAGE</u></h1><br>
+    <table>
+        <tr>
+            <td><label for="username"><b>Username:&nbsp;</b></label></td>
+            <td><input type="text" name="username" id="username" required=""></td>
+        </tr>
+        <tr>
+            <td><label for="password"><b>Password:</b></label></td>
+            <td><input type="password" name="password" required=""></td>
+        </tr>
+
+        <p style="color: red;">{{ error }}</p>
+    </table>
+<button style="background-color: blue; color: white; border-color: #ffffff" type="submit" class="btn btn-outline-danger float-right ">Login</button>
+    </form>
+
+    <form method="get" action="/register/">
+        {% csrf_token %}
+    <br><button style="background-color: cyan; color: #000000; border-color: #ffffff" type="submit" class="btn  float-right">SignUp</button>
+    </form>
+
+</div>
+</div>
+</div>
+{% endblock %}
